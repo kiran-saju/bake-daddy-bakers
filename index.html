@@ -156,7 +156,7 @@ body::before {
 .nav-wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 
 .brand { font-family: var(--font-cursive); font-size: 2rem; color: var(--accent-gold); display: inline-flex; align-items: center; gap: 8px; letter-spacing: 0.5px; }
-.brand img { height: 30px; transition: transform 0.5s var(--ease); }
+.brand img { height: 70px; transition: transform 0.5s var(--ease); }
 .brand:hover img { transform: rotate(-8deg) scale(1.06); }
 
 .nav-links { display: none; align-items: center; gap: 32px; }
@@ -190,6 +190,61 @@ body::before {
   .nav-links { display: flex; }
   .nav-cta { display: inline-flex; }
   .hamburger { display: none; }
+}
+/* See All Menu Button */
+.see-all-wrapper {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.see-all-btn {
+  padding: 16px 40px;
+  font-size: 0.95rem;
+  gap: 12px;
+  border-radius: 50px;
+  letter-spacing: 0.8px;
+  transition: all 0.4s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.see-all-btn i {
+  transition: transform 0.3s var(--ease);
+}
+
+.see-all-btn:hover i:last-child {
+  transform: translateX(6px);
+}
+
+.see-all-btn:hover i:first-child {
+  transform: scale(1.1);
+}
+
+/* Add a subtle pulse animation on hover */
+.see-all-btn::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+  filter: blur(4px);
+}
+
+.see-all-btn:hover::after {
+  opacity: 0.3;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .see-all-btn {
+    padding: 14px 30px;
+    font-size: 0.85rem;
+    width: 100%;
+    max-width: 280px;
+  }
 }
 
 /* ============================================
@@ -654,6 +709,14 @@ body::before {
     </div>
 
     <div class="menu-grid" id="menuGrid"></div>
+
+    <!-- SEE ALL MENU BUTTON -->
+    <div class="see-all-wrapper">
+      <a href="menu.html" class="btn btn-gold see-all-btn">
+        <i class="fa-solid fa-utensils"></i> See All Menu
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -673,7 +736,7 @@ body::before {
           <div class="img-wrap"><img src="assets/img/shawai.png" alt="Charcoal Shawai"></div>
           <div class="info">
             <span class="badge">Bestseller</span>
-            <h3>Juicy Charcoal Shawai</h3>
+            <h3>Juicy Arabic Shawai</h3>
             <p>Slow-grilled and rolled with garlic mayo, pickles &amp; fresh salad in a warm paratha.</p>
             <span class="price">&#8377;150</span>
           </div>
